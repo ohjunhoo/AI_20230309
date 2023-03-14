@@ -26,15 +26,14 @@ def recursive(n, length):
     result=[]
     for m in middles:
         if n != length:
+            result.append("0"+m+"0")
+        result.append("1"+m+"1")
+        result.append("6"+m+"6")
+        result.append("8"+m+"8")
+        result.append("9"+m+"6")
+
+    return result
             
-        
-   
-    
-    
-        
-               
-    
-   
 print("n = 3: \n",gen_strobogrammatic(3))
 
 

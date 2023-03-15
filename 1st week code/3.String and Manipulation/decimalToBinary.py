@@ -4,7 +4,6 @@ Created on Wed Jun  8 12:09:59 2016
 
 @author: ericgrimson
 """
-
 num = 19
 
 if num < 0:

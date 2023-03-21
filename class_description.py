@@ -54,47 +54,55 @@ class Student(Person):
     total = 0
     # create Student object with Person, Math grade, English grade
     def __init__(self, Person, math_grade, eng_grade):
-        Person
-        self.math_grade=math_grade
-        self.eng_grade=eng_grade
+        self.math_grade = math_grade
+        self.eng_grade = eng_grade
+        self.myage =Person.myage
+        self.myname= Person.myname
+        Student.total += 1
+
+      
+
+
+
+
    
     # set math score 
     def set_math_score(self, math_grade):
-       self.set_math_grade = math_grade
-       return self.set_math_grade
+        self.math_grade = math_grade
+      
 
     # set english score 
     def set_English_score(self, Eng_grade):
-        self.set_English_grade =Eng_grade
-        return self.set_English_grade
-    
+        self.eng_grade = Eng_grade
+       
     # get math score 
     def get_myName(self):
-       return Person.get_myName
+        return self.myname
+    
 
     # get math score 
     def get_myAge(self):
-       return Person.get_myAge
+        return self.myage
+
+       
 
         
     # get math score 
     def get_math_score(self):
-        self.get_math_score=self.set_math_grade
-        return self.get_math_score
-
+        return self.math_grade
     # get english score 
     def get_english_score(self):
-        self.get_english_score=self.set_Eng_grade
-        return self.get_Eng_score
-      
+        return self.eng_grade
     #get average score 
     def get_score_average(self):
-        self.get_score_average = (self.get_english_score+self.get_math_score)//2
+        return (self.math_grade+self.eng_grade)//2
+            
 
-        return self.get_score_average
     #print student information 
     def __str__(self):
-        return "Name:"+str(self.get_myName)+"\nAge"+str(self.get_myAge)
+        return "Name:"+self.myname+"\nAge"+str(self.myage)
+
+        
 
         
 
@@ -123,7 +131,7 @@ print("\n ***************************")
 ## get average score of each student 
 print(p1.get_myName() + " test score average: ", std1.get_score_average())
 print(p2.get_myName() + " test score average: ", std2.get_score_average())
-print(p3.get_myName() + " test score average: ", std3.get_score_average())
+print(p3.get_myName() + " test score average: ",std3.get_score_average())
 
 print("\n ***************************")
 

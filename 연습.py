@@ -60,7 +60,18 @@ class WSU_linked_list(object):
 # output: 
 #        1) return  none 
 #        2) print class list in priority of class order
-    #def sorted_classlist(self):
+    def sorted_classlist(self):
+        node = self.head
+        result =[]
+        for i in range(self.count):
+            result.append(node.data)
+            node=node.next
+        result = sorted(result)
+        items = WSU_linked_list()
+        for i in range(len(result)):
+            items.append_item(result[i],0)
+        return items.print_foward()
+
         
 
 #print each elements

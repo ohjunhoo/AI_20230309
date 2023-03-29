@@ -1,0 +1,114 @@
+In your `report.py` and `portfolio.py` files, the creation of a `Portfolio` and 'tableformat'
+Your job is complete portfolio and tableformat so that you will be able to use report.
+
+For your understading, you should review 'report.py' first, in here you could find usage of Portfolio and table format. 
+
+For example, the `report.py` program has code like this:
+
+```python
+def read_portfolio(filename):
+    '''
+    Read a stock portfolio file into a list of dictionaries with keys
+    name, shares, and price.
+    '''
+    with open(filename) as lines:
+        portdicts = fileparse.parse_csv(lines,
+                                        select=['name','shares','price'],
+                                        types=[str,int,float],
+                                        **opts)
+
+    portfolio = [ Stock(**d) for d in portdicts ]
+    return Portfolio(portfolio)
+```
+
+and the `portfolio.py` file defines `Portfolio()` with an initializer
+like this:
+
+```python
+class Portfolio:
+    def __init__(self, holdings):
+   
+    ...
+```
+
+If a `Portfolio` class is supposed to contain a list of `Stock` instances, 
+maybe you should change the class to be a bit more clear.
+Like this:
+
+```python
+# portfolio.py
+
+import stock
+
+class Portfolio:
+    def __init__(self):
+        self.holdings = []
+
+    def append(self, holding):
+       
+    ...
+```
+
+If you want to read a portfolio from a CSV file, maybe you should make a
+class method for it:
+
+```python
+# portfolio.py
+
+import fileparse
+import stock
+
+class Portfolio:
+    def __init__(self):
+        self.holdings = []
+
+    def append(self, holding):
+      
+
+    @classmethod
+    def from_csv(cls, lines):
+        self = cls()
+        portdicts = fileparse.parse_csv(lines,
+                                        select=['name','shares','price'],
+                                        types=[str,int,float],
+                                        **opts)
+       # your code here
+       # append information after making Stock class 
+      
+        return self
+```
+#portfolio information will be formatted as like below
+
+1) CSV 
+>>> report.portfolio_report('portfolio.csv', 'prices.csv', 'csv')
+Name,Shares,Price,Change
+AA,100,9.22,-22.98
+IBM,50,106.28,15.18
+CAT,150,35.46,-47.98
+MSFT,200,20.89,-30.34
+GE,95,13.48,-26.89
+MSFT,50,20.89,-44.21
+IBM,100,106.28,35.84
+
+2) txt
+>>> report.portfolio_report('portfolio.csv', 'prices.csv', 'txt') 
+      Name     Shares      Price     Change
+---------- ---------- ---------- ----------
+        AA        100       9.22     -22.98
+       IBM         50     106.28      15.18
+       CAT        150      35.46     -47.98
+      MSFT        200      20.89     -30.34
+        GE         95      13.48     -26.89
+      MSFT         50      20.89     -44.21
+       IBM        100     106.28      35.84
+
+3) HTML
+>>> report.portfolio_report('portfolio.csv', 'prices.csv', 'html') 
+<tr><th>Name</th><th>Shares</th><th>Price</th><th>Change</th></tr>
+<tr><td>AA</td><td>100</td><td>9.22</td><td>-22.98</td></tr>
+<tr><td>IBM</td><td>50</td><td>106.28</td><td>15.18</td></tr>
+<tr><td>CAT</td><td>150</td><td>35.46</td><td>-47.98</td></tr>
+<tr><td>MSFT</td><td>200</td><td>20.89</td><td>-30.34</td></tr>
+<tr><td>GE</td><td>95</td><td>13.48</td><td>-26.89</td></tr>
+<tr><td>MSFT</td><td>50</td><td>20.89</td><td>-44.21</td></tr>
+<tr><td>IBM</td><td>100</td><td>106.28</td><td>35.84</td></tr>

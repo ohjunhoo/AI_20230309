@@ -5,8 +5,7 @@ class TableFormatter:
         '''
         Emit the table headers
         '''
-        self.headings = []
-        self.headings.append(headers)
+        
         
         raise NotImplementedError()
 
@@ -14,8 +13,7 @@ class TableFormatter:
         '''
         Emit a single row of table data
         '''
-        self.row = []
-        self.row.append(rowdata)
+      
         
         raise NotImplementedError()
 
@@ -25,13 +23,14 @@ class TextTableFormatter(TableFormatter):
     '''
     def headings(self, headers):
         # your code here
-        self.headers =[]
-        self.headers.append(headers)
-        return self.headers
+        for h in headers:
+            print(f'{h:>10s}', end=' ')
+        print()
+        print(('-'*10+' ')*len(headers))
     def row(self, rowdata):
         # your code here
-        self.row = []
-        self.row.append(rowdata)
+        for d in rowdata:
+            print(f'{d:10s}', end=' ')
         return self.row
 
 
@@ -41,14 +40,10 @@ class CSVTableFormatter(TableFormatter):
     '''
     def headings(self, headers):
        # your code here 
-        self.headers =[]
-        self.headers.append(headers)
-        return self.headers
+        print(','.join(headers))
     def row(self, rowdata):
        # your code here
-        self.row = []
-        self.row.append(rowdata)
-        return self.row
+        print(','.join(headers))
 
 class HTMLTableFormatter(TableFormatter):
     '''
@@ -56,16 +51,17 @@ class HTMLTableFormatter(TableFormatter):
     '''
     def headings(self, headers):
        # your code here
-        self.headers =[]
-        self.headers.append(headers)
-        return self.headers
-
+        print('<tr>', end='')
+        for h in headers:
+            print(f'<th>{h}</th>', end='')
+        print('</tr>')
     def row(self, rowdata):
        # your code here
-        self.row = []
-        self.row.append(rowdata)
-        return self.row
-
+        print('<tr>', end='')
+        for d in rowdata:
+            print(f'<td>{d}</td>', end='')
+        print('</tr>')
+        
 class FormatError(Exception):
     pass
 

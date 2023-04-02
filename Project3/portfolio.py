@@ -5,7 +5,7 @@ from stock import Stock
 
 class Portfolio:
     def __init__(self):
-        self._holdings = []
+        self.holdings = []
 
     @classmethod
     def from_csv(cls, lines, **opts):
@@ -15,20 +15,17 @@ class Portfolio:
                                         types=[str,int,float],
                                         **opts)
         
-        self._holdings.append([Stock(d["name"],d["shares"],d["price"]) for d in portdicts])
+        self.holdings.append([Stock(d["name"],d["shares"],d["price"]) for d in portdicts])
+        return self.holdings
     # your code here after making stock class using portdicts
-        def cls():
-            return self._holdings
-        return self
 
     def append(self, holding):
-        self.holding = holding
-        self._holdings.append(self.holdng)
+        self.holdings.append(holding)
     # your code here
 
     @property
     def total_cost(self):
-        return sum([s.cost() for s in self._holdings])
+        return sum([s.cost() for s in self.holdings])
     # your code here
         
     

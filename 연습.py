@@ -62,6 +62,7 @@ class WSU_linked_list(object):
 #        2) print class list in priority of class order
     def sorted_classlist(self):
         node = self.head
+<<<<<<< HEAD
         result =[]
         for i in range(self.count):
             result.append(node.data)
@@ -73,11 +74,19 @@ class WSU_linked_list(object):
         return items.print_foward()
 
         
+=======
+        result=[]
+        for _ in range(self.count):
+            result.append(node.data)
+            node = node.next
+        return result
+>>>>>>> f97369375d04e352a3afdf415d4047cd4ec54377
 
 #print each elements
     def print_foward(self):
        for node in self.iter():
-        print(node)   
+        print(node)
+
 
 #search by end of linked list        
     def search_item(self, val):
@@ -106,6 +115,11 @@ print("\n")
 print("You should take class as below order")
 items.sorted_classlist()
 
+
+
+
+
+
 '''
 if items.search_item('SQL'):
     print("True")
@@ -117,5 +131,3 @@ if items.search_item('C+'):
 else:
     print("False")
 '''
-
-

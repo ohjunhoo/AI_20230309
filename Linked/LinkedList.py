@@ -3,7 +3,7 @@ class Node:
         self.data = data
         self.next = next
 
-class Linked_List(Node):
+class Linked_List:
     
     def __init__(self):
         self.__head = Node("dummy")
@@ -46,7 +46,7 @@ class Linked_List(Node):
         if self.isEmpty():
             return None
         if( i >= 0 and i <= self.__numItems -1):
-            return self.__getNode(i).item
+            return self.__getNode(i).data
         else:
             return None
     
@@ -127,3 +127,5 @@ list = Linked_List()
 
 list.append(30)
 list.insert(0,20)
+
+

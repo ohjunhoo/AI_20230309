@@ -23,6 +23,7 @@ class ListStack:
             print(self.__stack[i], end='')
         print()
 
+
 st1 = ListStack()
 print(st1.top())	# No effect
 st1.push(100)
@@ -32,3 +33,10 @@ st1.pop()
 st1.push('Monday')
 st1.printStack()
 print('isEmpty?', st1.isEmpty())
+
+
+
+
+
+
+                

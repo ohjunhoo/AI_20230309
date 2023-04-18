@@ -7,7 +7,7 @@ def heapsort(x:list):
     percolateDown(x, 0, last-1)
 
 def buildHeap(self):
-		for i in range((len(self.__A) - 2) // 2, -1, -1):
+		for i in range((len(Heap) - 2) // 2, -1, -1):
 			self.__percolateDown(i)
 def percolateDown(self, i:int):
 		# Percolate down w/ self.__A[i] as the root
